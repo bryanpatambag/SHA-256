@@ -5,10 +5,16 @@ If the file’s hash does not match the trusted value, the process is terminated
 
 ---
 
-## 📂 Project Structure
-- `dllmain.cpp` → DLL entry point (kept minimal)
-- `sha-256.cpp` → Implements SHA‑256 hashing and monitoring loop
-- `sha-256.h` → Function declarations and export
+## 🛠️ Setting the Trusted Hash
+After computing the SHA‑256 hash of your target file (game.exe),
+open sha-256.cpp and locate the following lines near the top of the file:
+// sha-256.cpp
+
+// Path to the file being monitored
+std::wstring gamePath = L"game.exe";
+
+// Replace this with your trusted SHA-256 hash
+std::wstring trustedHash = L"07C34D79B89ADCD041B61F063AE6CCF7DC93D941ACC5480795D40DD985D7F3A9";
 
 ---
 
@@ -20,15 +26,3 @@ Here are simple ways to compute it:
 Open PowerShell and run:
 ```powershell
 Get-FileHash "C:\path\to\game.exe" -Algorithm SHA256
-
-
-🛠️ Setting the Trusted Hash
-After computing the SHA‑256 hash of your target file (game.exe),
-open sha-256.cpp and locate the following lines near the top of the file:
-// sha-256.cpp
-
-// Path to the file being monitored
-std::wstring gamePath = L"game.exe";
-
-// Replace this with your trusted SHA-256 hash
-std::wstring trustedHash = L"07C34D79B89ADCD041B61F063AE6CCF7DC93D941ACC5480795D40DD985D7F3A9";
