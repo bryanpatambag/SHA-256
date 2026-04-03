@@ -21,13 +21,10 @@ Open PowerShell and run:
 ```powershell
 Get-FileHash "C:\path\to\game.exe" -Algorithm SHA256
 
----
 
-### 🛠️ Setting the Trusted Hash
-After computing the SHA‑256 hash of your target file (`game.exe`),  
-open **sha-256.cpp** and locate the following lines near the top of the file:
-
-```cpp
+🛠️ Setting the Trusted Hash
+After computing the SHA‑256 hash of your target file (game.exe),
+open sha-256.cpp and locate the following lines near the top of the file:
 // sha-256.cpp
 
 // Path to the file being monitored
